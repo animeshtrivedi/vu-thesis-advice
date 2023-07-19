@@ -1,4 +1,12 @@
-\documentclass{article}
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+
+      \textwidth 15cm
+      \textheight 22cm
+      \parindent 10pt
+      \oddsidemargin 0.85cm
+      \evensidemargin 0.37cm
+
 \usepackage[utf8]{inputenc}
 \usepackage{tcolorbox}
 \usepackage{xcolor}
@@ -13,19 +21,71 @@
             pdfcreator={pdflatex}]{hyperref}
 
 % atr: This sets up sans or roman fonts 
-\renewcommand{\familydefault}{\sfdefault}
-
-
-\title{Notes on CS BSc. and MSc.\textbf{} Thesis Content \\ at VU Amsterdam \bigskip}
-
-\author{Animesh Trivedi \\ a.trivedi@vu.nl \\ \url{https://animeshtrivedi.github.io/} \\ version: v1.5}
-\date{May 19th, 2021}
+%\renewcommand{\familydefault}{\sfdefault}
 
 
 \begin{document}
 
-\maketitle
+\thispagestyle{empty}
+
+\begin{center}
+
+Vrije Universiteit Amsterdam
+
+\vspace{1mm}
+
+\includegraphics[height=28mm]{vu-griffioen.pdf}
+
+\vspace{1.5cm}
+
+{\Large Bachelor/Master Thesis}
+
+\vspace*{1.5cm}
+
+\rule{.9\linewidth}{.6pt}\\[0.4cm]
+{\huge \bfseries Notes on CS BSc and MSc Thesis \par}
+{\huge \bfseries  at VU Amsterdam \par}\vspace{0.4cm}
+\rule{.9\linewidth}{.6pt}\\[1.5cm]
+
+\vspace*{2mm}
+
+%{\Large
+{\normalsize 
+\begin{tabular}{ll}
+{\bf Author:} & Animesh Trivedi (\href{mailto:a.trivedi@vu.nl}{a.trivedi@vu.nl)} \\
+& \url{https://animeshtrivedi.github.io/} \\ 
+& StoNet Research Group, \url{https://stonet-research.github.io/} \\ 
+\end{tabular}
+}
+
+\vspace*{1.5cm}
+
+\begin{tabular}{ll}
+{\it 1st supervisor:}   & ~~N/A \\
+{\it daily supervisor:} & ~~N/A \\
+{\it 2nd reader:}       & ~~N/A 
+\end{tabular}
+
+\vspace*{2cm}
+
+\textit{A thesis submitted in fulfillment of the requirements for\\ the VU Bachelor/Master of Science degree in Computer Science }
+
+\vspace*{1cm}
+
+\today\\[4cm] % Date
+
+\end{center}
+
 \newpage
+
+% \author{Animesh Trivedi \\ a.trivedi@vu.nl \\ \url{https://animeshtrivedi.github.io/} \\ version: v1.5}
+% \date{May 19th, 2021}
+
+
+% \begin{document}
+% 
+% \maketitle
+% \newpage
 \tableofcontents
 \newpage 
 \section*{Version History}

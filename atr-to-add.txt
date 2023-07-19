@@ -1,0 +1,10 @@
+July 2023
+
+* PNG images 
+* Generic details 
+* How to copy text 
+* related work, 1-2 papers 
+* how to cite references, URL must be rendered 
+* how to fill up reproducbility appendix 
+* What tools to use and how to analyze results 
+* 
