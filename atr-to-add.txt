@@ -7,4 +7,6 @@ July 2023
 * how to cite references, URL must be rendered 
 * how to fill up reproducbility appendix 
 * What tools to use and how to analyze results 
-* 
+* How to quote manifesto
+* how to quote research methodlogy 
+*  
