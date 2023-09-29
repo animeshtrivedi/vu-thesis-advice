@@ -1,0 +1,16 @@
+\section{Implementation} 
+Change the heading of the section to make it more specific to match your thesis work. 
+
+Implementation section presents how you realize your design from the previous chapter. Here you can use information and challenges regarding what language, system, runtime, compiler, etc. you used. What was challenging about it. Did you use threads, if yes how did you manage them. What kind of I/O API did you use? All these "your" implementation specific details that might be helpful to understand your Github artifact. 
+
+$ $\\
+\textit{Important: Implementation section is not an accompanying documentation to your Github repo.} $ $\\
+
+Avoid using variable names from the code to explain concepts. A simple refactoring of your code repo and this whole chapter becomes useless. Hence, instead of saying "\textit{struct iommu\_maps does a callback with void *cb\_func pointer to invalidate the struct inode\_fs mappings}", say that "\textit{An object is allocated to keep track of IOMMU mappings of file system, which are later invalidated using a callback mechanism}". 
+
+You can show code snippets to make your point clear(er). But explain the code properly. Use line numbers in your code illustrations (see the latex package \texttt{listings}, and \url{https://www.overleaf.com/learn/latex/code_listing}) and say what is happening at what line number. Do not assume that a reader will glance at the code and grasp immediately what you wanted to show. This rule also goes for (i) Graphs; (ii) Equations; and (iii) code on the slides and in the paper. Take your time and explain these 3 things very slowly and carefully. Otherwise they are bound to create more confusion than clear them. 
+
+The idea of this chapter is not only to explain in sufficient detail what is required for a reader to leverage and extend the artifact available (useful for \textbf{"transferable artifact"}), but also to highlight the implementation complexity and challenges. Systems thesis often requires building a large amount of code before you can show the smallest amount of progress. Hence, make sure the challenges associated with this process are clearly reported and written in the thesis. 
+
+
+As a general guideline, start from the big pieces and big picture, and iteratively drill down (subsection by subsection) into low level details. At the end (or sometime in the start) you can show how all the pieces come together perhaps by means of a \textit{walk through} of a high-level operation. Do not jump up and down in the stack within a single paragraph when explaining concepts. 

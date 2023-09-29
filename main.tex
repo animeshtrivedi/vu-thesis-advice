@@ -24,6 +24,9 @@
 \usepackage{pdfpages}
 \usepackage{xspace}
 \usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{tcolorbox}
+
 \usepackage{lipsum}
 \usepackage{enumerate}
 \usepackage[shortlabels]{enumitem}
@@ -251,8 +254,14 @@ Try to keep the abstract within a single page.
 % Parts of the thesis are included below. Rename the files as required.
 % But take care that the paths match. You can also change the order of appearance by moving the include commands.
 
-\chapter{Introduction}\label{s:introduction}
-\chapter{Background}\label{s:background}      
+
+\input{sections/1-introduction.tex}
+\input{sections/2-background.tex}
+\input{sections/3-design.tex}
+\input{sections/4-implementation.tex}
+\input{sections/5-evaluation.tex}
+\input{sections/6-related-work.tex}
+\input{sections/7-conclusion.tex}
             
 % --------------------------------------------------------------
 %:                  BACK MATTER: appendices, refs,..
@@ -277,7 +286,7 @@ Try to keep the abstract within a single page.
 %\bibliography{references} % adjust this to fit your BibTex file
 \bibliography{main}
 
-%\include{sections/appendix}
+\input{sections/Appendix.tex}
 
 %\end{tiny}
 %\end{multicols}

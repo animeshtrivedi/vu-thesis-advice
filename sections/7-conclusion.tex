@@ -1,0 +1,28 @@
+\section{(Optional) Lesson Learned}
+Based on the nature of the work, it might be applicable to the key recommendations from your thesis work, or your experience in a separate chapter. These lessons can be scientific like particular design choices (e.g., a non-blocking asynchronous I/O call with a preemptive schedule is hard to get right, or correct consensus implementation is hard to get right in the first place). It could be more mundane lessons like, code proper code management, always measure a particular variable, or do not trust documentation, etc. But back these up how arrived at such lessons. 
+
+A very good example of lesson learned are these papers (I am sure there more examples out there): 
+\begin{itemize}
+    \item Andrew S. Tanenbaum. 2016. Lessons learned from 30 years of MINIX. Commun. ACM 59, 3 (March 2016), 70–78.
+    \item Gernot Heiser and Kevin Elphinstone. 2016. L4 Microkernels: The Lessons from 20 Years of Research and Deployment. ACM Trans. Comput. Syst. 34, 1, Article 1 (April 2016), 29 pages. 
+\end{itemize}
+
+\newpage 
+\section{Conclusion}
+Read your Abstract and Introduction sections and then write your Conclusion. A reader should be able to read these three sections in one go and get the gist, problem, research findings, and direction of your work. 
+\subsection{Answering Research Questions}
+Have your research questions clearly answered explicitly here. An acceptable answer is either qualitative or quantitative. Qualitative answers are in which you provide a detailed analysis of an area. For example, \textit{What are the important parameters to consider when designing a storage system?} You can answer various parameters that you have identified, why they are important, and what the literature says about them. Quantitative answers are backed up by your evaluation section. For example, \textit{What is the performance overhead of file systems for small files?} You can answer that based on multi-media file access patterns (large sequential scans), the overhead is between 5.82-104.24\%. Provide more detailed steps that you took to answer the question.
+
+
+One important aspect of answering research questions is to provide hints and directions in which these results can be used by the reader. For example, you can say that based on our findings, we recommend to optimize a certain operation, or measure a setup before deploying, or synthesize the value of a particular parameter. What is the transferable knowledge here? Think and write about that. 
+\subsection{Limitation and Future Work}
+Clearly identify the limitation of the current work, e.g., incomplete implementation, lack of measurements, inconclusive experiments, additional features, lack of time for a particular investigation, etc. 
+
+\subsection*{What kind of limitations can you discuss?}
+Here are some ideas 
+\begin{itemize}
+ \item Some experiments which you could not manage to run?
+ \item Use of old hardware, and how your results will change if you are to use the new hardware?
+ \item Use of emulator/simulator, if you suspect that your results might change if you were evaluating in a real world. 
+ \item Missing features or ideas that you have not implemented, or evaluated? 
+\end{itemize}

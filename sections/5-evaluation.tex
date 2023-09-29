@@ -1,0 +1,84 @@
+\section{Evaluation}
+What is the goal of the evaluation section? To generate quantitative data to back up your claims in the thesis of having built a fast/efficient/scalable/better system. Hence, your evaluation section should reflect that. Often I see an evaluation section which is written from a point of view that "we ran the system, and fiddle around with 4 configuration parameters to generate 16 combinations and here are the results". Do not do this. 
+
+Setup expectations for the evaluation up front. What you are about to do, how we are doing to do it, and what we have found. 
+
+\subsection*{Always include a summary up front}
+Always include a summary of key findings in a paragraph such as: 
+\begin{tcolorbox}[colback=green!5,colframe=gray!40!black,title=Example of Evaluation Summary]
+The fictitious evaluation of MyCoolSystem is focused around three dimensions (performance, better failure recovery (negative results), and trade-offs): 
+\begin{enumerate}
+    \item \textit{Does MyCoolSystem deliver lower latencies and higher bandwidths than NotSoCoolSystem?} We evaluate this question in Section X.Y. Our results on a cluster of 10 servers demonstrate that MyCoolSystem delivers $10.1\%$ lower latencies and $50.6\%$ higher bandwidth than the state of the art system NotSoCoolSystem. Key performance benefits from the design decision and implementation optimizations discussed in previous Sections A and B. 
+    
+    \item \textit{Does MyCoolSystem deliver better failure recovery?} We perform failure analysis in Section a.b. Our experiments with the one and two system crashes (fail-stop) show that MyCoolSystem can detect and recover from failures in $39.5msecs$, which is $2.42x$ slower than the state of the art system. Our analysis shows that this slowdown is due to the slow storage devices we are using. We will discuss in our future work (section x.y) potential ideas to optimize the recovery time. 
+    
+    \item \textit{What are trade-offs of using MyCoolSystem?} Our analysis in section $x.y$ shows that MyCoolSystem is the best choice when the performance of the system is bounded by the  network performance. Otherwise, MyCoolSystem can incur a performance overhead of up to $34.87\%$. The overhead is proportional to the number of clients used. 
+\end{enumerate}
+\end{tcolorbox}
+
+\subsection{Reporting Negative Results}
+Science is about being curious, exploring, and understanding knowledge. By the virtue of this process, we can not guarantee success every time we start to work on a problem. If the result was known up front then what is the value of your work? If all experiments were always successful, we would be living in a very different world. 
+
+We understand that due to multiple reasons a thesis might not work out and you will not get expected positive results. Report these results truthfully, and focus your attention to explain why it has happened. Why did we think at the start that this thesis should result in a positive evaluation of the system. What went wrong, did the development become complex, hardware was not adequate, other technical reasons? Try to speculate how it could have worked under what conditions. 
+
+Negative result is an equal and valid contribution from your thesis, given than the initial premise of the experiment was sound and justified. 
+
+\subsection{Experimental Setup}
+Have a clean subsection where you can provide detailed setup information that might be necessary to reproduce your experiments. These details might include hardware and software configurations, operating systems, what features are enabled or compiled in, (if applicable) which datasets and traces are used in the evaluation. 
+
+\subsection*{What are Micro and Macro benchmarks}
+A micro benchmark is a benchmark that selectively exercises and benchmark a particular code path in your program. For example, if you are building a file system you may want to micro benchmark a specific read or write call. Microbenchmarks are typically done in depth, dissecting the performance and overheads in detail, and explaining what is happening in the system when processing a particular request. In contrast, macro benchmarks take a broader view (horizontal view) and try to answer the question how your particular system behaves as a whole, often when integrated with other applications and frameworks. Coming back to the file system example, in macro benchmarks you may want to benchmark how file system benchmarks like cloning and building the Linux source tree, a file or email server, big data workloads like Databases, etc. benefit or do not benefit from your file system. In macro benchmarks, applications might be doing a lot of different things including read and write calls. Based on the type of work you are doing, you may or may not have to do one of these two types of benchmarking. 
+
+\subsection*{Designing an Experiment} 
+Experiment design is a very important scientific skill. It is like writing good code, or a good thesis. How can you design an experiment that shows or measure what you want to measure? How can you be sure if you measured the right thing? I often ask students, what if I do not believe the experiment that you are showing me, can you convince me otherwise that you are doing a correct measurement. All these questions are very important and take time to think, and design an experiment. Doing a good experiment would also involve doing coding to generate and plot the right set of numbers. Try to automate the whole process of doing experiments as much as possible. 
+
+In designing an experiment, try to vary one parameter at a time to study its impact. Do not choose arbitrary values such as looping for 10 times, why not 5 or 100 times? Always try to justify all possible value selections. Often these values are either conventions, values that you might have seen in other papers, or just default that you choose to leave without changing. 
+
+\subsubsection*{Understand Time} 
+Be careful when you measure time. Make sure you understand what is the overhead of time measurement. \url{https://linux.die.net/man/7/time}. Try to amortize the overhead of time measurements. Also consider what is the event that you are trying to measure, does that event happen in a second, millisecond, microsecond, or nanosecond granularity. Make sure that your experiment runs at-least a couple of orders of magnitude longer than the precise event that you are trying to measure. For example, if you are measuring a page fault that takes 10 microseconds, then design an experiment that generates one million faults, thus running your experiments in 10s of seconds. Do not blindly calculate the average of values. Report appropriate box-and-whiskers plot with min, max, median, 95 and 99 percentile values. 
+
+
+\subsubsection*{Do Quick and Dirty Calculations} 
+
+Always do back-of-the-envelope calculations quickly. Try to guesstimate what you are about to measure, how long it should take, how fast it can be, etc. Then verify your understanding and intuition from the experimental results you get. For example, if you measure that on the DAS-5 you can perform 10 million RPC operations per second for 1kB bytes request and response, then I know your measurements are wrong. These measurements suggest that DAS-5 can do 10,000,000 x 1024 bytes = 81.92 Gbps. However, DAS-5 uses FDR InfiniBand network, which is limited to 56 Gbps. Hence, you must have measured something wrong here. Such quick and short calculations are very important to verify the sanity of your experiments. Try to think creatively how else can you check and measure such things. 
+
+
+Designing experiments and evaluating systems is a tedious and complicated process. Only by being meticulous and comprehensive we can avoid common mistakes and pitfalls. 
+
+\subsection*{Reporting on Experiments} 
+For each experiment that you conduct and report, write cleanly in the thesis: 
+\begin{itemize}
+    \item What you are about to do? For example, \textit {in this experiment we are going to compare the run-time overheads of system X with our system Y.} 
+    \item Why such an experiment is relevant. \textit{One of the aims of the thesis work is to reduce the runtime overheads, hence, this experiment will let us compare directly the overheads in presence of feature A or not.}
+    \item How did we measure this? \textit{We deployed system X and Y, and calculated the number of operations completed per second. Each operation takes 3 different steps, which we measured individually and sum up the time taken. All experiments are run one million times and we report 95 percentile. The complete measurement data-set is available in Appendix A.}
+    \item Discuss graphs and results in detail. Take your time to explain them properly. Point out data points in the graphs which are visible, and others that you know from the raw data points, but which might not be so visible in the graph. Any further information that you did not plot. 
+    \item What are limitations of this experiment? For example, \textit{ We measured the impact of feature "A" indirectly as it was not possible to modify the source code. Or we could not get software "X" to work under desired conditions. Or our hardware is old and the new generation of hardware has a fix for this bug.}
+\end{itemize}
+
+Often the shape of the graph does not show an expected figure. In that case, you can state clearly that there is an anomaly and we do not know what caused it. If you have an idea then you can write, e.g., \textit{As shown in the graph, for request sizes between 8-16MB the time taken to process requests increases significantly (by 80.1\%). We suspect that this is due to increased LLC cache misses, however, we have not verified it.}
+
+
+Do not round numbers such as \texttt{34.73} to \texttt{35} or \texttt{34}. Always report accurately to the 2 decimal points. In systems research, I rarely see full rounded numbers like 200\% or 10 times. 
+
+\subsection*{Plotting Graphs} 
+Use a proper tool to plot high-quality, proportionally front graphs that can be read properly without zooming in. Use vector graphics, not bitmap. No jpeg, jpg, or png please. Often students start with these formats as a placeholder, then in the end before the thesis submission it is too late to re-plot the graphs. Please take time to learn and set up graph plotting tools. 
+
+
+\textbf{One message or finding per graph:} Each graph should have only one key message it should convey (max two, using two y axes). Do not try to cramp too many data points in a single graph. You can easily split them into multiple figures. Strive for simplicity, and elegance! 
+
+
+\textbf{Explain your graphs:} Always explain how a reader should read your graphs. Do not say as shown in the figure we build a cool system. No. For every graph that you include in the thesis you should explain what it is. Always fill out 4 sentences automatically (i) what is it showing; (ii) what is on the x axis (any special note like log axis);; (iii) what is on the y axis (any special note like log axis); (iv) what should a reader read from the graph, what is the expected shape, lower or higher is better, or any other special mention. For example: 
+\begin{tcolorbox}[colback=green!5,colframe=gray!40!black,title=Example of a graph explanation in a figure]
+Figure X shows (or plots) the number of operations completed with respect to the number of cores in the system. The x axis shows the number of active CPU cores (skipping the special core 0). The y axis (log scale) represents performance gains in Million of operations per second (MIOPS), higher is better. The graph shows that as we increase the number of active cores from 2 to 16, the number of operations completed is increased from 20.12 MIOPS to 104.87 MIOPS, an increase of 421.22\%. The system suffers a performance drop of 5.52\% between core scaling of 11 and 12 CPU cores (not visible in the graph), which is caused by CPU voltage-frequency scaling mechanism of Intel CPUs. 
+\end{tcolorbox}
+
+\textbf{Pick sensible axis ticks:} Pick sensible values for which you want to do experiment and plot data. For example, for an experiment with file sizes, do not pick file sizes of 1kB, 2kB, 10kB, 50kB, 100kB, and 1MB --- a seemingly random sequence of sizes. Pick a clear trend (log or linear values) like  a log sequence of 1kB, 2kB, 4kB, 8kB, ...1MB (2x or 4x jumps) or 1, 10, 100, 1000 (base 10 log). Do not mix and match random and arbitrary sequences. 
+
+Do not plot break graph axes arbitrarily. Do not plot the y axis randomly from an arbitrary value. Always use 0 (for a linear plot), or 1 (for a log plot).  
+
+\subsection{Limitations and/or Threat to Validity}
+What are you missing from your evaluation? Under what circumstances results from your evaluation will change substantially? By how much (any reasonable estimate)? What features are missing from the implementation that you did not get to evaluate? Any specific experiment that you could not run due to any specific issue in the setup? Did you use old hardware, and how your results will change if you are to use the new hardware? Did you use an emulator and/or simulator, do you suspect that your results might change if you were evaluating in a real world? Or some part of the setup or optimization about which you are not completely sure that you did 100\% to check all possibilities. 
+
+\subsection{Summary or Discussion on Evaluation}
+Your evaluation will consist of multiple subsections. At the end of each subsection you should clearly summarize what is the conclusion from that experiment. At the end of your evaluation chapter you should have a final subsection which is the summary of the whole evaluation. Here you should clearly recap what the evaluation section has shown (quantitatively!). Use as many numbers and data points possible. Connect the results from the evaluation back to your system architecture, design choices, performance claims, or research questions that you made at the start of the thesis. Have an open discussion about the evaluation of what has worked, and what has not worked. 
+

@@ -1,0 +1,70 @@
+\chapter{Introduction}\label{s:introduction} 
+Introduction is an unzipped version of Abstract. Keep in mind that the Introduction and Conclusion \textit{should} (aim for it) be broadly readable by all of your scientific peers, e.g., friends from Physics or Mathematics. Use simple, general language and gently introduce your thesis to the world. Where does this thesis work fit in, who are the people for whom this could be useful work, how much societal or economic impact does this research field have, what are the bigger trends in the area, etc. Introduction should be very broadly readable. For example, you could be doing something in the domain of storage where you talk about our societies being digital, and producing vast quantities of data (200 Zettabytes by 2025), how this data is generated, stored and processed, who are the people and companies who are interested in building fast storage systems, etc. 
+\subsection{Context}
+Context is more specific and more specific to your research direction. Here you can gradually use more computer science language and terminology. What specific computer science topic are you working on? What is happening in this area? What are the new advancements? How are these advancements (or lack of thereof) What specifically is the problem, why is it a problem now, is it something new or an old problem in a new context, are you building something to try out something new, etc. 
+
+At the end of your context it should be very clear what are the broad challenges in this domain of your research. You should even summarize it clearly at the end of this section. 
+
+\subsection{Problem Statement}
+What is the very specific technical and scientific problem that you are addressing in this work? Why is this problem important? Is this problem timely? What is the impact of the problem? What happens if it is not solved? What kind of a new class of systems should solving this problem will enable? Problem statement section is very specific to your thesis problem. 
+
+\subsection{Research Questions}
+
+Research questions are scientific questions that you are doing to answer in this thesis work. There are many flavors of scientific questions, however, in a typical "systems" thesis work you will be designing and prototyping a system and benchmarking it. Hence, your scientific questions would be exploring questions in the scope of (i) what is the right design and/or how to come up with a right design?; (ii) what are the key challenges, or how to identify right parameters for a certain processes; and/or (iii) how fast, slow, efficient, etc. can a new system be? 
+
+A typical way to think about scientific questions is that you should be able to answer questions either qualitatively (by gathering literature evidence, complexity analysis, taxonomies, design processes, designing and implementing concepts) or quantitatively (by running experiments and measuring). See Conclusion section about how to answer the research questions in more detail. 
+
+Always justify why your research question is important, and how do you plan to answer them, and what their answers will enable us to do that was not possible yet.  
+
+\subsection{Research Methodology}
+How do you plan to answer the research questions? There are typically few accepted research  methodologies that you should be following and referring in your work, which are: 
+\begin{itemize}
+    \item \textbf{(Methodology  M1)} Quantitative research (statistical modeling, simulations, comprehensive surveys) [1-2];
+    \item \textbf{(M2)} Design, abstraction, prototyping [3, 4, 5];
+    \item \textbf{(M3)} Experimental research, designing appropriate micro and workload-level benchmarks, quantifying a running system prototype [6, 7, 8];
+    \item \textbf{(M4)} Use-case study, collecting operational traces, collaborating with users and partners (following best practices [9, 10, 11]);
+    \item \textbf{(M5)} Open-science, open-source software, community building, peer-reviewed scientific publications, reproducible experiments [12, 13, 14, 15].
+\end{itemize}
+
+Only include the ones you have used in your thesis work and reference them where you have used them. So for example, if you have done M3 and M5 and then include them and their references. Then in your text M3 will become M1 and M5 will become M2. Rename them appropriately. 
+\newline
+
+
+\noindent\textbf{References:}
+\begin{enumerate}
+    \item Naim A. Kheir, Systems Modeling and Computer Simulation,(2nd ed.). Marcel Dekker, Inc., NY,USA.
+    \item Yair Levy, Timothy J. Ellis, (2006) A Systems Approach to Conduct an Effective Literature Review in Support of Information Systems Research. Informing Sci J 9: 181-212.
+    \item Alexandru Iosup, Laurens Versluis, Animesh Trivedi, Erwin Van Eyk, Lucian Toader, Vincent vanBeek, Giulia Frascaria, Ahmed Musaafir, Sacheendra Talluri (2019) The AtLarge Vision on the Design of Distributed Systems and Ecosystems. ICDCS 2019: 1765-1776.
+    \item R. Hamming, The Art of Doing Science and Engineering: Learning to Learn, CRC Press, 1997.
+    \item K. Peffers, T. Tuunanen, M. A. Rothenberger, and S. Chatterjee, A Design Science Research Methodology for Information Systems Research, Journal of Management Information Systems 24(3): 45-77 (2008).
+    \item R. Jain (1991) The Art of Computer Systems Performance Analysis. John Wiley \& Sons Inc., NewYork, USA.
+    \item Gernot Heiser (2019) Systems Benchmarking Crimes. \url{http://www.cse.unsw.edu.au/~Gernot/benchmarking-crimes.html}, 2020. 
+    \item John Ousterhout. 2018. Always measure one level deeper. Commun. ACM 61, 7 (July 2018), 74–83. DOI:\url{https://doi.org/10.1145/3213770}
+    \item D. Kondo, B. Javadi, A. Iosup, D. H. J. Epema, The Failure Trace Archive: Enabling Comparative Analysis of Failures in Diverse Distributed Systems, CCGRID 2010: 398-407.
+    \item Laurens Versluis, Roland Mathá, Sacheendra Talluri, Tim Hegeman, Radu Prodan, Ewa Deelman, Alexandru Iosup (2020) The Workflow Trace Archive: Open-Access Data From Public and Private Computing Infrastructures. IEEE Trans. Parallel Distrib. Syst. 31(9): 2170-2184.
+    \item Alexandru Uta, Kristian Laursen, Alexandru Iosup, Paul Melis, Damian Podareanu, and ValeriuCodreanu (2020) Beneath the SURFace: An MRI-like View into the Life of a 21st Century Datacenter USENIX ;login. Aug 2020 issue. First FAIR dataset published through Zenodo in 2020.  [Data set] \url{http://doi.org/10.5281/zenodo.3878143}.
+    \item Sonja Bezjak, April Clyburne-Sherin, Philipp Conzett, Pedro Fernandes, Edit Görögh, Kerstin Helbig, Bianca Kramer, Ignasi Labastida, Kyle Niemeyer, Fotis Psomopoulos, Tony Ross-Hellauer, René Schneider, Jon Tennant, Ellen Verbakel, Helene Brinken, Lambert Heller, Open Science Training Handbook , Zenodo, DOI: \url{https://doi.org/10.5281/zenodo.1212496}, April, 2018.
+    \item Wilkinson, M., Dumontier, M., Aalbersberg, I. et al. (2016). The FAIR Guiding Principles for scientific data management and stewardship. Nature Scientific Data, 3.10.1038/sdata.2016.18. 
+    \item Emery D. Berger, Stephen M. Blackburn, Matthias Hauswirth, Michael W. Hicks: A Checklist Manifesto for Empirical Evaluation: A Preemptive Strike Against a Replication Crisis in Computer Science (2019),  \url{https://blog.sigplan.org/2019/08/28/a-checklist-manifesto-for-empirical-evaluation-a-preemptive-strike-against-a-replication-crisis-in-computer-science/}, 2019. 
+    \item Alexandru Uta, Alexandru Custura, Dmitry Duplyakin, Ivo Jimenez, Jan Rellermeyer, Carlos Maltzahn, Robert Ricci, Alexandru Iosup, Is Big Data Performance Reproducible in Modern Cloud Networks?, NSDI 2020. 
+\end{enumerate}
+
+
+\subsection{Thesis Contributions}
+Make a specific list of thesis contributions. There can be multiple flavors of contributions that your thesis does. Make sure to articulate and explain them cleanly. For example: 
+\begin{itemize}
+    \item Conceptual contribution: here you might have surveyed a field, and categorized knowledge in a new taxonomy, or did a new design of a system, or use an idea from one domain to another, or introduced a new idea or concept, etc. 
+    \item Experimental contribution: Here you designed an experiment, evaluated a system, presented experimental guidelines, compared two or more systems in particular aspects by running experiments with them, etc. 
+    \item Artifact and dataset contributions: you developed a piece of software which is open sourced and can be used by others, or you collected a valuable dataset (e.g., trace archives (\url{https://wta.atlarge-research.com/traces.html}), file system traces (\url{http://iotta.snia.org/traces}), I/O traces (\url{https://github.com/Beaconsys/Beacon}), cloud reproducibility data set  (\url{https://zenodo.org/record/3576604}), etc.) that can be used by you and others to conduct further research. The data set should follow the best FAIR data set practices. See "The FAIR Guiding Principles for scientific data management and stewardship" reference above. 
+    \item (optional) Knowledge or artifact dissemination: If already during your thesis work you have contributed to open source projects, gave talks and presentations at various venues regarding your work, published a paper (workshop or conference) then you should include such activities here explicitly. These activities help to disseminate your research findings to a wider audience.
+\end{itemize}
+
+\subsection{Plagiarism Declaration}
+I confirm that this thesis work is my own work, is not copied from any other source (person, Internet, or machine), and has not been submitted elsewhere for assessment. 
+
+To understand more about plagiarism policy at VU Amsterdam, see \url{https://www.vu.nl/en/about-vu-amsterdam/academic-integrity/index.aspx} and \url{https://sites.google.com/vu.nl/academic-integrity-vu/academic-integrity}. 
+
+\subsection{Thesis Structure}
+If you like to present what the upcoming sections and subsections are  going to present, then you can summarize them here. For example you can say that in the next chapter you are going to present detailed  information about the concept of "whatever", which is necessary to understand before presenting the design in chapter 3. Prepare your reader regarding what to do. 
+
+For more creativity, you can also visualize it, show potential multiple reading paths for readers with different technical expertise. 
